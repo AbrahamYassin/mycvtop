@@ -1,0 +1,15 @@
+[24-Aug-2025 17:46:06 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'digicard_mycvtop.analytics_events' doesn't exist in /home/digicard/mycvtop/api/event.php:6
+Stack trace:
+#0 /home/digicard/mycvtop/api/event.php(6): PDO->prepare('INSERT INTO ana...')
+#1 {main}
+  thrown in /home/digicard/mycvtop/api/event.php on line 6
+[24-Aug-2025 17:46:07 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'digicard_mycvtop.analytics_events' doesn't exist in /home/digicard/mycvtop/api/event.php:6
+Stack trace:
+#0 /home/digicard/mycvtop/api/event.php(6): PDO->prepare('INSERT INTO ana...')
+#1 {main}
+  thrown in /home/digicard/mycvtop/api/event.php on line 6
+[24-Aug-2025 17:46:27 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'digicard_mycvtop.analytics_events' doesn't exist in /home/digicard/mycvtop/api/event.php:6
+Stack trace:
+#0 /home/digicard/mycvtop/api/event.php(6): PDO->prepare('INSERT INTO ana...')
+#1 {main}
+  thrown in /home/digicard/mycvtop/api/event.php on line 6

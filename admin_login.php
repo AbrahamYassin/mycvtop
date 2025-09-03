@@ -1,0 +1,5 @@
+<?php require_once __DIR__.'/includes/utils.php'; require_once __DIR__.'/includes/auth.php'; require_once __DIR__.'/includes/csrf.php';
+if($_SERVER['REQUEST_METHOD']==='POST'){ csrf_verify(); $u=trim($_POST['username']??''); $p=$_POST['password']??''; if(login_admin($u,$p)) redirect('admin_dashboard.php'); else $error="Identifiants invalides."; } ?>
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Admin — Connexion</title><link rel="stylesheet" href="assets/styles.css"></head>
+<body><div class="container"><div class="card" style="max-width:520px;margin:40px auto"><h2>Connexion Admin</h2><?php if(!empty($error)): ?><p class="notice"><?= h($error) ?></p><?php endif; ?>
+<form method="post"><?php csrf_field(); ?><label class="label">Utilisateur</label><input class="input" name="username" required><label class="label">Mot de passe</label><input class="input" type="password" name="password" required><div style="margin-top:12px"><button class="btn btn-primary">Se connecter</button></div></form></div></div></body></html>

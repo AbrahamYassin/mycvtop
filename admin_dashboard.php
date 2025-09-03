@@ -1,0 +1,9 @@
+<?php require_once __DIR__.'/includes/auth.php'; require_once __DIR__.'/includes/utils.php'; require_once __DIR__.'/includes/db.php'; require_admin();
+$pdo=db(); $users=$pdo->query("SELECT COUNT(*) c FROM users")->fetch()['c']??0; $exports=$pdo->query("SELECT COUNT(*) c FROM analytics_events WHERE event_type='export'")->fetch()['c']??0;
+$visits_24h=$pdo->query("SELECT COUNT(*) c FROM analytics_events WHERE event_type='visit' AND created_at>=DATE_SUB(NOW(), INTERVAL 1 DAY)")->fetch()['c']??0;
+$signups_24h=$pdo->query("SELECT COUNT(*) c FROM analytics_events WHERE event_type='signup' AND created_at>=DATE_SUB(NOW(), INTERVAL 1 DAY)")->fetch()['c']??0;
+$ad=$pdo->query("SELECT * FROM ad_slots WHERE placement='interstitial' ORDER BY id DESC LIMIT 1")->fetch(); ?>
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Admin — Dashboard</title><link rel="stylesheet" href="assets/styles.css"></head>
+<body><div class="container"><div class="header"><h2>Dashboard Admin</h2><div><a class="btn" href="admin_ads.php">Gérer les ADS</a><a class="btn" href="admin_logout.php">Déconnexion</a></div></div>
+<div class="grid"><div class="card"><h3>Utilisateurs</h3><div style="font-size:28px"><?= (int)$users ?></div></div><div class="card"><h3>Exports (total)</h3><div style="font-size:28px"><?= (int)$exports ?></div></div><div class="card"><h3>Visites (24h)</h3><div style="font-size:28px"><?= (int)$visits_24h ?></div></div><div class="card"><h3>Inscriptions (24h)</h3><div style="font-size:28px"><?= (int)$signups_24h ?></div></div></div>
+<hr/><div class="card"><h3>Interstitial actif</h3><?php if($ad): ?><div class="small">#<?= (int)$ad['id'] ?> — <?= h($ad['name']) ?> (<?= h($ad['placement']) ?>)</div><div class="code"><?= htmlspecialchars($ad['ad_code']) ?></div><?php else: ?><div class="small">Aucun code interstitiel configuré.</div><?php endif; ?></div></div></body></html>
