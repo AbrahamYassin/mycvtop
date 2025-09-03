@@ -9,6 +9,13 @@ require_once __DIR__.'/includes/utils.php';
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title><?= h(APP_NAME) ?> — Créez votre CV moderne gratuitement</title>
   <meta name="description" content="<?= h(APP_NAME) ?> est un SaaS gratuit et mobile-first pour créer un CV professionnel et l’exporter en PDF.">
+  <meta name="keywords" content="cv, curriculum vitae, gratuit, mobile, template, export pdf">
+  <meta name="author" content="<?= h(APP_NAME) ?>">
+  <link rel="canonical" href="<?= h(APP_URL) ?>">
+  <meta property="og:title" content="<?= h(APP_NAME) ?> — Créez votre CV moderne gratuitement">
+  <meta property="og:description" content="<?= h(APP_NAME) ?> est un SaaS gratuit et mobile-first pour créer un CV professionnel et l’exporter en PDF.">
+  <meta property="og:url" content="<?= h(APP_URL) ?>">
+  <meta property="og:type" content="website">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%2316a34a'/%3E%3Ctext x='50' y='58' font-family='Arial' font-size='44' text-anchor='middle' fill='white'%3Em%3C/text%3E%3C/svg%3E">
   <style>
     :root{
@@ -113,7 +120,7 @@ require_once __DIR__.'/includes/utils.php';
     </nav>
   </div>
 </header>
-
+<main>
 <section class="hero">
   <div class="container hero-inner">
     <div>
@@ -122,7 +129,7 @@ require_once __DIR__.'/includes/utils.php';
       <p class="lead">Modèles soignés, prévisualisation immédiate, export PDF A4. Pas de carte, pas de piège — le service est financé par la publicité.</p>
       <div class="hero-cta" role="group" aria-label="Appels à l'action">
         <a class="btn btn-primary" href="register.php">Commencer gratuitement</a>
-        <a class="btn btn-outline" href="register.php">Voir un aperçu</a>
+        <a class="btn btn-outline" href="preview.php">Voir un aperçu</a>
       </div>
       <div class="stats" aria-label="Atouts">
         <div class="stat"><div class="icon">✓</div><div><b>100% gratuit</b><div style="color:var(--muted)">sans frais cachés</div></div></div>
@@ -188,6 +195,8 @@ require_once __DIR__.'/includes/utils.php';
     <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Mes données sont-elles en sécurité ? <span>+</span></div><div class="faq-a">Nous stockons le strict nécessaire. Les mots de passe sont hachés. Consultez la <a href="privacy.php">politique de confidentialité</a>.</div></div>
   </div>
 </section>
+
+</main>
 
 <footer>
   <div class="container foot">
